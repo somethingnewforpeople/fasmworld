@@ -1,33 +1,33 @@
-use16							; генерированить 16-битный код(для DOS)
-org 100h						; начало программы с адресса 100h
+use16						; генерированить 16-битный код(для DOS)
+org 100h					; начало программы с адресса 100h
 ;-----------------------------------
 	mov ax, word[a]				; копирование слова а в ax
-	mul word[b]					; умножение слова b и ax, ax-младшая часть dx-старшая часть
+	mul word[b]				; умножение слова b и ax, ax-младшая часть dx-старшая часть
 	mov word[x], ax 			; копирование ax в слово x
 	mov word[x+2], dx 			; копирование dx в слово+2 x
 
 
 	mov ax, word[a+2]			; копирование слова+2 в ax
-	mul word[b]					; умножение слова b и ax, ax-младшая часть dx-старшая часть
+	mul word[b]				; умножение слова b и ax, ax-младшая часть dx-старшая часть
 	add word[x+2], ax 			; сложение слова+2 x и ax
 	adc word[x+4], dx 			; сложение слова+4 x и dx с учетом флага 'c'
 
 
 	mov ax, word[a]				; копирование слова а в ax
 	mul word[b+2]				; умножение слова+2 b и ax, ax-младшая часть dx-старшая часть
-	mov word[sec_res], ax 		; копирование ax в слово sec_res
-	mov word[sec_res+2], dx 	; копирование dx в слово+2 sec_res
+	mov word[sec_res], ax 			; копирование ax в слово sec_res
+	mov word[sec_res+2], dx 		; копирование dx в слово+2 sec_res
 
 
 	mov ax, word[a+2]			; копирование слова+2 a в ax
 	mul word[b+2]				; умножение слова+2 b и ax, ax-младшая часть dx-старшая часть
-	add word[sec_res+2], ax 	; сложение слова+2 sec_res и ax
-	adc word[sec_res+4], dx 	; сложение слова+4 sec_res и dx с учетом флага 'c'
+	add word[sec_res+2], ax 		; сложение слова+2 sec_res и ax
+	adc word[sec_res+4], dx 		; сложение слова+4 sec_res и dx с учетом флага 'c'
 
 
-	mov ax, word[sec_res] 		; копирование слова sec_res в ax
-	mov bx, word[sec_res+2] 	; копирование слова+2 sec_res в bx
-	mov cx, word[sec_res+4]		; копирование слова+4 sec_res в cx
+	mov ax, word[sec_res] 			; копирование слова sec_res в ax
+	mov bx, word[sec_res+2] 		; копирование слова+2 sec_res в bx
+	mov cx, word[sec_res+4]			; копирование слова+4 sec_res в cx
 
 
 	add word[x+2], ax 			; сложение слова+2 x и ax
