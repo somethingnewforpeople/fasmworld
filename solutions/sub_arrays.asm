@@ -11,7 +11,7 @@ lp:						; метка lp для вычитания значений массив
 	mov ax, word[f_array+di-2]		; копирование слова f_array со смещение di-2
 	sub ax, word[s_array+si] 		; вычитание ax и слова s_array со смещением si
 	mov word[res+si], ax 			; копирование ax в слово+si res
-	add	si, 2				; сложение si и 2 для смещения
+	add si, 2				; сложение si и 2 для смещения
 	sub di, 2 				; вычитание di и 2 для смещения
 	loop lp 				; итерация по значению в cx
  
