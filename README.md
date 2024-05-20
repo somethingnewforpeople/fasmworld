@@ -1,2 +1,2 @@
 # fasmworld
-Решение задач по языку ассемблера(fasm) c сайта fasmworld.ru
+Решение задач по языку ассемблера(fasm) на сайте fasmworld.ru
