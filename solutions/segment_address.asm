@@ -21,7 +21,7 @@ start: 						; старт выполнения программы
 	mov al, [var1] 				; al = var1 для сравнения чисел
 	cmp al, [var2] 				; сравнение al и var2
 	jz t_seg_equal 				; переход на t_set_equal если al = var2
-	jg t_seg_greater 			; переход на t_seg_greater если al > var2
+	jg s_seg_greater 			; переход на s_seg_greater если al > var2
 	jmp f_seg:seg_less 			; переход на seg_less в f_seg, al < var2
 
 
@@ -29,7 +29,7 @@ t_seg_equal: 					; метка для var1 = var2
 	jmp t_seg:seg_equal 			; переход на seg_equal в t_seg
 
 
-t_seg_greater: 					; метка для var1 > var2
+s_seg_greater: 					; метка для var1 > var2
 	jmp s_seg:seg_greater 			; переход на seg_greater в s_seg
 
 	
